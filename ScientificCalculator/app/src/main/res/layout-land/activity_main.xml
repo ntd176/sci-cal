@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_guideline_top_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3"
+        app:layout_constraintGuide_begin="102dp" />
+
+    <TextView
+        android:id="@+id/previousCalculationView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="bottom|end"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/displayEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/displayEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:ems="10"
+        android:textAlignment="textEnd"
+        android:inputType="textPersonName"
+        android:hint="@string/displyHint"
+        android:textColorHint="@color/greyAccent"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:importantForAutofill="no"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_top_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- CONSTRAINT 1 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/numericButtonsLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_guideline_top_buttons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/scientificButtonsLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1">
+
+        <TableLayout
+            android:id="@+id/numericTableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- HÀNG 1 -->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <!-- backspace button -->
+                <Button
+                    android:id="@+id/button1"
+                    style="@style/SpecialButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_background"
+                    android:onClick="backspaceBTNPush"
+                    android:text="@string/backspaceText"
+                    android:layout_margin="2dp"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- percent button -->
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="percentBTNPush"
+                    android:text="@string/percentText"
+                    android:textColor="@color/tanAccent" />
+
+                <!-- square root button -->
+                <Button
+                    android:id="@+id/button3"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="squareRootBTNPush"
+                    android:text="@string/squareRootText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- divide button -->
+                <Button
+                    android:id="@+id/button4"
+                    style="@style/OperatorButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/arithmetic_button_background"
+                    android:onClick="divideBTNPush"
+                    android:text="@string/divideText"
+                    android:textColor="@color/tanAccent"/>
+            </TableRow>
+
+            <!-- HÀNG 2 -->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <!-- 7 button -->
+                <Button
+                    android:id="@+id/button5"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="sevenBTNPush"
+                    android:text="@string/sevenText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- 8 button -->
+                <Button
+                    android:id="@+id/button6"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="eightBTNPush"
+                    android:text="@string/eightText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- 9 button -->
+                <Button
+                    android:id="@+id/button7"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="nineBTNPush"
+                    android:text="@string/nineText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- multiply button -->
+                <Button
+                    android:id="@+id/button8"
+                    style="@style/OperatorButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/arithmetic_button_background"
+                    android:onClick="multiplyBTNPush"
+                    android:text="@string/multiplyText"
+                    android:textColor="@color/tanAccent"/>
+            </TableRow>
+
+            <!-- HÀNG 3 -->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <!-- 4 button -->
+                <Button
+                    android:id="@+id/button9"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="fourBTNPush"
+                    android:text="@string/fourText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- 5 button -->
+                <Button
+                    android:id="@+id/button10"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="fiveBTNPush"
+                    android:text="@string/fiveText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- 6 button -->
+                <Button
+                    android:id="@+id/button11"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="sixBTNPush"
+                    android:text="@string/sixText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- subtract button -->
+                <Button
+                    android:id="@+id/button12"
+                    style="@style/OperatorButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/arithmetic_button_background"
+                    android:onClick="subtractBTNPush"
+                    android:text="@string/subtractText"
+                    android:textColor="@color/tanAccent"/>
+            </TableRow>
+
+            <!-- HÀNG 4 -->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_gravity="center">
+
+                <!-- 1 button -->
+                <Button
+                    android:id="@+id/button13"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="oneBTNPush"
+                    android:text="@string/oneText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- 2 button -->
+                <Button
+                    android:id="@+id/button14"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="twoBTNPush"
+                    android:text="@string/twoText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- 3 button -->
+                <Button
+                    android:id="@+id/button15"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="threeBTNPush"
+                    android:text="@string/threeText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- add button -->
+                <Button
+                    android:id="@+id/button16"
+                    style="@style/OperatorButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/arithmetic_button_background"
+                    android:onClick="addBTNPush"
+                    android:text="@string/addText"
+                    android:textColor="@color/tanAccent"/>
+            </TableRow>
+
+            <!-- HÀNG 5 -->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <!-- clear button -->
+                <Button
+                    android:id="@+id/button17"
+                    style="@style/SpecialButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/clear_button_background"
+                    android:onClick="clearBTNPush"
+                    android:text="@string/clearText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- zero button -->
+                <Button
+                    android:id="@+id/button18"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="zeroBTNPush"
+                    android:text="@string/zeroText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- decimal button -->
+                <Button
+                    android:id="@+id/button19"
+                    style="@style/NumberButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="decimalBTNPush"
+                    android:text="@string/decimalText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- equal button -->
+                <Button
+                    android:id="@+id/button20"
+                    style="@style/OperatorButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/arithmetic_button_background"
+                    android:onClick="equalsBTNPush"
+                    android:text="@string/equalsText"
+                    android:textColor="@color/tanAccent"/>
+            </TableRow>
+        </TableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- CONSTRAINT 2 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scientificButtonsLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_guideline_top_buttons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/numericButtonsLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1" >
+
+        <TableLayout
+            android:id="@+id/scientificTableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <!-- HÀNG 1 -->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <!-- memory_plus button -->
+                <Button
+                    android:id="@+id/button21"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="memoryplusBTNPush"
+                    android:text="@string/memory_plusText"
+                    android:textColor="@color/tanAccent" />
+
+                <!-- memory_recall button -->
+                <Button
+                    android:id="@+id/button22"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="memoryrecallBTNPush"
+                    android:text="@string/memory_recallText"
+                    android:textColor="@color/tanAccent" />
+
+                <!-- parentheses open button -->
+                <Button
+                    android:id="@+id/button23"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="parOpenBTNPush"
+                    android:text="@string/parenthesesOpenText"
+                    android:textColor="@color/tanAccent" />
+
+                <!-- parentheses close button -->
+                <Button
+                    android:id="@+id/button24"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="parCloseBTNPush"
+                    android:text="@string/parenthesesCloseText"
+                    android:textColor="@color/tanAccent" />
+            </TableRow>
+
+            <!-- HÀNG 2 -->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <!-- degress button -->
+                <Button
+                    android:id="@+id/button25"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="deggressBTNPush"
+                    android:text="@string/degText"
+                    android:textColor="@color/tanAccent" />
+
+                <!-- radian button -->
+                <Button
+                    android:id="@+id/button26"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="radianBTNPush"
+                    android:text="@string/radText"
+                    android:textColor="@color/tanAccent" />
+                <!-- gradian button -->
+                <Button
+                    android:id="@+id/button27"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="gradiansBTNPush"
+                    android:text="@string/gradText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- pi button -->
+                <Button
+                    android:id="@+id/button28"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="piBTNPush"
+                    android:text="@string/piText"
+                    android:textColor="@color/tanAccent"/>
+            </TableRow>
+
+            <!-- HÀNG 3 -->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <!-- sin button -->
+                <Button
+                    android:id="@+id/button29"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="sinBTNPush"
+                    android:text="@string/trigSinText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- cos button -->
+                <Button
+                    android:id="@+id/button30"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="cosBTNPush"
+                    android:text="@string/trigCosText"
+                    android:textColor="@color/tanAccent" />
+
+                <!-- tan button -->
+                <Button
+                    android:id="@+id/button31"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="tanBTNPush"
+                    android:text="@string/trigTanText"
+                    android:textColor="@color/tanAccent"/>
+                <!-- cotan button -->
+                <Button
+                    android:id="@+id/button32"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="coTanBTNPush"
+                    android:text="@string/trigCotanText"
+                    android:textColor="@color/tanAccent"/>
+            </TableRow>
+
+            <!-- HÀNG 4 -->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
+                <!-- ln button -->
+                <Button
+                    android:id="@+id/button33"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="lnBTNPush"
+                    android:text="@string/naturalLogText"
+                    android:textColor="@color/tanAccent"/>
+                <!-- log button -->
+                <Button
+                    android:id="@+id/button34"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="logBTNPush"
+                    android:text="@string/logText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- 10^x button -->
+                <Button
+                    android:id="@+id/button35"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="tenPowerXBTNPush"
+                    android:text="@string/tenPowerXText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- |x| button -->
+                <Button
+                    android:id="@+id/button36"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="absoluteValueXBTNPush"
+                    android:text="@string/absoluteValueText"
+                    android:textColor="@color/tanAccent"/>
+            </TableRow>
+
+            <!-- HÀNG 5 -->
+            <TableRow
+                android:layout_weight="1"
+                android:gravity="center">
+                <!-- x! button -->
+                <Button
+                    android:id="@+id/button37"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="factorialBTNPush"
+                    android:text="@string/factorialText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- x^2 button -->
+                <Button
+                    android:id="@+id/button38"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="xSquare2BTNPush"
+                    android:text="@string/xSquare2Text"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- x^y button -->
+                <Button
+                    android:id="@+id/button39"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="xPoweryBTNPush"
+                    android:text="@string/xPowerYText"
+                    android:textColor="@color/tanAccent"/>
+
+                <!-- memory clear button -->
+                <Button
+                    android:id="@+id/button40"
+                    style="@style/ScientificFunctionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/button_background"
+                    android:onClick="memoryclearBTNPush"
+                    android:text="@string/memory_clearText"
+                    android:textColor="@color/tanAccent"/>
+            </TableRow>
+        </TableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

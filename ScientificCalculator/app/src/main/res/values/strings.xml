@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">ScientificCalculator</string>
+
+    <string name="displyHint">Enter a Value</string>
+
+    <string name="errorText">Error</string>
+    <string name="nanText">NaN</string>
+
+    <string name="zeroText">0</string>
+    <string name="oneText">1</string>
+    <string name="twoText">2</string>
+    <string name="threeText">3</string>
+    <string name="fourText">4</string>
+    <string name="fiveText">5</string>
+    <string name="sixText">6</string>
+    <string name="sevenText">7</string>
+    <string name="eightText">8</string>
+    <string name="nineText">9</string>
+
+    <string name="clearText">C</string>
+    <string name="divideText">/</string>
+    <string name="multiplyText">x</string>
+    <string name="addText">+</string>
+    <string name="subtractText">-</string>
+    <string name="decimalText">.</string>
+    <string name="equalsText">=</string>
+    <string name="percentText">%</string>
+    <string name="squareRootText">√</string>
+
+    <string name="memory_plusText">M+</string>
+    <string name="memory_recallText">MR</string>
+    <string name="memory_clearText">MC</string>
+
+    <string name="parenthesesOpenText">(</string>
+    <string name="parenthesesCloseText">)</string>
+    <string name="degText">deg</string>
+    <string name="radText">rad</string>
+    <string name="gradText">grad</string>
+    <string name="piText">pi</string>
+    <string name="trigSinText">sin</string>
+    <string name="trigCosText">cos</string>
+    <string name="trigTanText">tan</string>
+    <string name="trigCotanText">cotan</string>
+    <string name="naturalLogText">ln</string>
+    <string name="logText">log</string>
+    <string name="tenPowerXText">10^x</string>
+    <string name="absoluteValueText">|x|</string>
+    <string name="factorialText">x!</string>
+    <string name="xSquare2Text">x^2</string>
+    <string name="xPowerYText">x^y</string>
+
+    <string name="backspaceText">←</string>
+</resources>
